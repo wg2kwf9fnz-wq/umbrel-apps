@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Umbrel updates do not copy new data directories into existing installations.
+# Create the persistent data root before Docker mounts it; the image entrypoint
+# then assigns the directory to its unprivileged application user.
+: "${APP_DATA_DIR:?APP_DATA_DIR must be set by Umbrel}"
+DATA_DIR="${APP_DATA_ROOT:-${APP_DATA_DIR}/data}"
+mkdir -p "$DATA_DIR"
