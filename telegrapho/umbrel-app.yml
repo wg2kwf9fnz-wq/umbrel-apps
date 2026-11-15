@@ -4,9 +4,8 @@ storage:
   dataRoot: data
 category: networking
 name: Telegrapho
-tagline: Private copy and paste between your devices
 version: "1.0.1-patch.1"
-port: 3712
+tagline: Private copy and paste between your devices
 description: >-
   Stop pasting sensitive text into third-party apps.
 
@@ -18,19 +17,23 @@ description: >-
 
 
   Your text. Your server. Your control.
-developer: egzola
-website: https://github.com/egzola/telegrapho
-repo: https://github.com/wg2kwf9fnz-wq/telegrapho
-support: https://github.com/wg2kwf9fnz-wq/telegrapho/issues
-submitter: wg2kwf9fnz-wq
-submission: https://github.com/getumbrel/umbrel-apps/pull/5724
-path: ""
-dependencies: []
-gallery:
-  - 1.webp
-  - 2.webp
-  - 3.webp
 releaseNotes: >-
   The welcome screen now appears only once per Telegrapho installation on Umbrel, rather than once per browser.
   Fixes channel-name editing so the field does not revert to the current channel while being cleared or changed.
   Saves the one-time welcome flag in persistent Umbrel app storage.
+
+developer: egzola
+website: https://github.com/egzola/telegrapho
+dependencies: []
+repo: https://github.com/wg2kwf9fnz-wq/telegrapho
+support: https://github.com/wg2kwf9fnz-wq/telegrapho/issues
+
+port: 3712
+gallery:
+  - 1.webp
+  - 2.webp
+  - 3.webp
+path: ""
+
+submitter: wg2kwf9fnz-wq
+submission: https://github.com/getumbrel/umbrel-apps/pull/5724
