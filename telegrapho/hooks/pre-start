@@ -7,4 +7,4 @@ DATA_DIR="${APP_DATA_ROOT:-${APP_DIR}/data}"
 # Create the persistent bind-mount directory for both fresh installs and
 # existing installs receiving this update. The image's app user is UID/GID 100.
 mkdir -p "$DATA_DIR"
-chown 100:100 "$DATA_DIR"
+chown 1000:1000 "$DATA_DIR"
