@@ -7,7 +7,7 @@ services:
       APP_PORT: 3712
 
   app:
-    image: ghcr.io/wg2kwf9fnz-wq/telegrapho:1.0.1-patch.1@sha256:7bea74dce532794263e4b0685d84eb1398ca3424d4b078b19094667658b978e6
+    image: ghcr.io/wg2kwf9fnz-wq/telegrapho:1.0.1-patch.1@sha256:4da824656eea73e9b6bfd25370ff2af583ba45b081a56145f905b336dd5fb2fe
     restart: on-failure
     stop_grace_period: 1m
     environment:
