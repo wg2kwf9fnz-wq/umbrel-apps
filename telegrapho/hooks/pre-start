@@ -5,6 +5,6 @@ APP_DIR="${APP_DATA_DIR:-$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")}"
 DATA_DIR="${APP_DATA_ROOT:-${APP_DIR}/data}"
 
 # Create the persistent bind-mount directory for both fresh installs and
-# existing installs receiving this update. The image's app user is UID/GID 100.
+# existing installs receiving this update. The image uses the official Node image's node user with UID/GID 1000.
 mkdir -p "$DATA_DIR"
 chown 1000:1000 "$DATA_DIR"
