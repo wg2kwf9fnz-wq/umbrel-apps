@@ -1,0 +1,58 @@
+name: QA Telegrapho package with official Umbrel linter
+
+on:
+  push:
+    branches:
+      - qa/telegrapho-update-lint
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out trusted Umbrel lint tooling
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+        with:
+          repository: getumbrel/umbrel-apps
+          ref: master
+          path: trusted
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: trusted/package-lock.json
+
+      - name: Install trusted lint dependencies
+        run: npm ci --ignore-scripts
+        working-directory: trusted
+
+      - name: Test trusted lint tooling
+        run: npm run test:lint
+        working-directory: trusted
+
+      - name: Check out proposed app package
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+        with:
+          repository: wg2kwf9fnz-wq/umbrel-apps
+          ref: update/telegrapho-installation-wide-welcome
+          path: submission
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Fetch official base ref for package diff
+        run: git fetch --no-tags ../trusted "HEAD:refs/remotes/base/master"
+        working-directory: submission
+
+      - name: Check patch whitespace
+        run: git diff --check base/master...HEAD
+        working-directory: submission
+
+      - name: Run official Umbrel app linter
+        run: node .tools/lint-apps.mjs --root ../submission --changed "base/master...HEAD" --check-images --format github
+        working-directory: trusted
