@@ -20,9 +20,9 @@ description: >-
   Your text. Your server. Your control.
 developer: egzola
 website: https://github.com/egzola/telegrapho
-repo: https://github.com/egzola/telegrapho
-support: https://github.com/egzola/telegrapho/issues
-submitter: egzola
+repo: https://github.com/wg2kwf9fnz-wq/telegrapho
+support: https://github.com/wg2kwf9fnz-wq/telegrapho/issues
+submitter: wg2kwf9fnz-wq
 submission: https://github.com/getumbrel/umbrel-apps/pull/5724
 path: ""
 dependencies: []
@@ -31,5 +31,6 @@ gallery:
   - 2.webp
   - 3.webp
 releaseNotes: >-
-  The welcome screen now appears only once per Umbrel installation, rather than once per browser.
-  Also fixes channel-name editing so the field does not reset to the default while being cleared or changed.
+  The welcome screen now appears only once per Telegrapho installation on Umbrel, rather than once per browser.
+  Fixes channel-name editing so the field does not revert to the current channel while being cleared or changed.
+  Saves the one-time welcome flag in persistent Umbrel app storage.
