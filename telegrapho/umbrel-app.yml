@@ -1,10 +1,10 @@
 manifestVersion: 1
 id: telegrapho
-name: Telegrapho
-tagline: Private copy and paste between your devices
-category: networking
 storage:
   dataRoot: data
+category: networking
+name: Telegrapho
+tagline: Private copy and paste between your devices
 version: "1.0.1-patch.1"
 port: 3712
 description: >-
